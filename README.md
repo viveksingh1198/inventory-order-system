@@ -9,15 +9,15 @@ Production-ready full-stack application for managing products, customers, orders
 - **Database:** PostgreSQL 16
 - **Containerization:** Docker, Docker Compose
 
-## Live URLs (update after deployment)
+## Live URLs
 
 | Service | URL |
 |---------|-----|
-| Frontend | `https://your-app.vercel.app` |
-| Backend API | `https://your-api.onrender.com` |
-| API Docs | `https://your-api.onrender.com/docs` |
-| Docker Hub | `https://hub.docker.com/r/<your-dockerhub-user>/inventory-api` |
-| GitHub | `https://github.com/<your-user>/inventory-order-system` |
+| Frontend | https://inventory-order-system.vercel.app |
+| Backend API | https://inventory-api.onrender.com |
+| API Docs | https://inventory-api.onrender.com/docs |
+| Docker Hub | https://hub.docker.com/r/viveksingh1198/inventory-api |
+| GitHub | https://github.com/viveksingh1198/inventory-order-system |
 
 ## Features
 
@@ -48,7 +48,7 @@ Production-ready full-stack application for managing products, customers, orders
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-user>/inventory-order-system.git
+git clone https://github.com/viveksingh1198/inventory-order-system.git
 cd inventory-order-system
 
 # Copy environment file
@@ -123,7 +123,7 @@ docker compose down -v
 git init
 git add .
 git commit -m "Initial commit: Inventory & Order Management System"
-git remote add origin https://github.com/<your-user>/inventory-order-system.git
+git remote add origin https://github.com/viveksingh1198/inventory-order-system.git
 git push -u origin main
 ```
 
@@ -135,9 +135,9 @@ git push -u origin main
 4. Choose **Docker** as runtime (uses `backend/Dockerfile`)
 5. Set environment variables:
    - `DATABASE_URL` - from Render Postgres (Internal URL)
-   - `CORS_ORIGINS` - your Vercel frontend URL
+   - `CORS_ORIGINS` - `https://inventory-order-system.vercel.app`
    - `LOW_STOCK_THRESHOLD` - `10`
-6. Deploy and note the API URL (e.g. `https://inventory-api.onrender.com`)
+6. Deploy and verify at https://inventory-api.onrender.com/health
 
 ### 3. Deploy Frontend on Vercel
 
@@ -145,20 +145,31 @@ git push -u origin main
 2. Set **Root Directory** to `frontend`
 3. Framework Preset: **Vite**
 4. Set environment variable:
-   - `VITE_API_URL` - your Render backend URL
-5. Deploy and note the frontend URL
+   - `VITE_API_URL` - `https://inventory-api.onrender.com`
+5. Deploy and verify at https://inventory-order-system.vercel.app
 
 ### 4. Update CORS on Render
 
-After Vercel deployment, update `CORS_ORIGINS` on Render with the exact Vercel URL and redeploy backend.
+After Vercel deployment, ensure `CORS_ORIGINS` on Render is set to `https://inventory-order-system.vercel.app` (no trailing slash) and redeploy backend if needed.
 
 ### 5. Push Backend Image to Docker Hub
 
 ```bash
 docker login
-docker build -t <your-dockerhub-user>/inventory-api:latest ./backend
-docker push <your-dockerhub-user>/inventory-api:latest
+docker build -t viveksingh1198/inventory-api:latest ./backend
+docker push viveksingh1198/inventory-api:latest
 ```
+
+Image available at: https://hub.docker.com/r/viveksingh1198/inventory-api
+
+## Submission Links
+
+| Deliverable | URL |
+|-------------|-----|
+| GitHub Repository | https://github.com/viveksingh1198/inventory-order-system |
+| Docker Hub Image | https://hub.docker.com/r/viveksingh1198/inventory-api |
+| Live Frontend | https://inventory-order-system.vercel.app |
+| Live Backend API | https://inventory-api.onrender.com |
 
 ## Project Structure
 
