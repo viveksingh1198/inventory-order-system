@@ -13,9 +13,10 @@ Production-ready full-stack application for managing products, customers, orders
 
 | Service | URL |
 |---------|-----|
-| Frontend | https://inventory-order-system.vercel.app |
-| Backend API | https://inventory-api.onrender.com |
-| API Docs | https://inventory-api.onrender.com/docs |
+| Frontend | https://project-id8wg.vercel.app |
+| Backend API | https://inventory-api-067k.onrender.com |
+| API Docs | https://inventory-api-067k.onrender.com/docs |
+| Health Check | https://inventory-api-067k.onrender.com/health |
 | Docker Hub | https://hub.docker.com/r/viveksingh1198/inventory-api |
 | GitHub | https://github.com/viveksingh1198/inventory-order-system |
 
@@ -135,9 +136,9 @@ git push -u origin main
 4. Choose **Docker** as runtime (uses `backend/Dockerfile`)
 5. Set environment variables:
    - `DATABASE_URL` - from Render Postgres (Internal URL)
-   - `CORS_ORIGINS` - `https://inventory-order-system.vercel.app`
+   - `CORS_ORIGINS` - `https://project-id8wg.vercel.app`
    - `LOW_STOCK_THRESHOLD` - `10`
-6. Deploy and verify at https://inventory-api.onrender.com/health
+6. Deploy and verify at https://inventory-api-067k.onrender.com/health
 
 ### 3. Deploy Frontend on Vercel
 
@@ -145,12 +146,12 @@ git push -u origin main
 2. Set **Root Directory** to `frontend`
 3. Framework Preset: **Vite**
 4. Set environment variable:
-   - `VITE_API_URL` - `https://inventory-api.onrender.com`
-5. Deploy and verify at https://inventory-order-system.vercel.app
+   - `VITE_API_URL` - `https://inventory-api-067k.onrender.com` (base URL only, no `/health` suffix)
+5. Deploy and verify at https://project-id8wg.vercel.app
 
 ### 4. Update CORS on Render
 
-After Vercel deployment, ensure `CORS_ORIGINS` on Render is set to `https://inventory-order-system.vercel.app` (no trailing slash) and redeploy backend if needed.
+After Vercel deployment, ensure `CORS_ORIGINS` on Render is set to `https://project-id8wg.vercel.app` (no trailing slash) and redeploy backend if needed.
 
 ### 5. Push Backend Image to Docker Hub
 
@@ -168,8 +169,8 @@ Image available at: https://hub.docker.com/r/viveksingh1198/inventory-api
 |-------------|-----|
 | GitHub Repository | https://github.com/viveksingh1198/inventory-order-system |
 | Docker Hub Image | https://hub.docker.com/r/viveksingh1198/inventory-api |
-| Live Frontend | https://inventory-order-system.vercel.app |
-| Live Backend API | https://inventory-api.onrender.com |
+| Live Frontend | https://project-id8wg.vercel.app |
+| Live Backend API | https://inventory-api-067k.onrender.com |
 
 ## Project Structure
 
